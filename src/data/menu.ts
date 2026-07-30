@@ -75,7 +75,6 @@ export const categories: MenuCategory[] = [
   {
     id: "platos",
     label: "Platos",
-    icon: "🍽️",
     title: "Platos de Madame",
     subtitle: "Cocinados con pasión · Sabores auténticos",
     items: [
