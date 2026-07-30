@@ -147,9 +147,13 @@ function Index() {
 
         {category.id === "pizzas" && (
           <div className="mt-14 rounded-2xl border border-ember/40 bg-card/60 p-7">
-            <h3 className="text-center font-display text-2xl text-gold">
-              ★ Extras para pizza ★
-            </h3>
+            <div className="flex items-center justify-center gap-4">
+              <span className="h-px w-10 bg-gold/40" />
+              <h3 className="text-center font-display text-2xl text-gold">
+                Extras para pizza
+              </h3>
+              <span className="h-px w-10 bg-gold/40" />
+            </div>
             <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
               {extras.map((extra) => (
                 <li
