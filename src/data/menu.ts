@@ -68,14 +68,13 @@ export const categories: MenuCategory[] = [
         description:
           "Salsa de tomate, mozzarella, rúcula, carne picada, pimiento, cebolla, champiñones, aceitunas",
         price: "12€",
-        tag: "⭐ La casa",
+        tag: "La casa",
       },
     ],
   },
   {
     id: "platos",
     label: "Platos",
-    icon: "🍽️",
     title: "Platos de Madame",
     subtitle: "Cocinados con pasión · Sabores auténticos",
     items: [
@@ -99,7 +98,6 @@ export const categories: MenuCategory[] = [
   {
     id: "tacos",
     label: "Tacos",
-    icon: "🌮",
     title: "Tacos",
     subtitle: "Disponibles en tamaño M y L",
     items: [
@@ -141,7 +139,6 @@ export const categories: MenuCategory[] = [
   {
     id: "hamburguesas",
     label: "Hamburguesas",
-    icon: "🍔",
     title: "Hamburguesas",
     items: [
       {
@@ -171,7 +168,6 @@ export const categories: MenuCategory[] = [
   {
     id: "bocadillos",
     label: "Bocadillos",
-    icon: "🥖",
     title: "Bocadillos",
     items: [
       {
@@ -199,14 +195,13 @@ export const categories: MenuCategory[] = [
         description:
           "Escalope, carne picada, patatas fritas, lechuga, tomate, cebolla, salsa casera",
         price: "6,50€",
-        tag: "⭐ La casa",
+        tag: "La casa",
       },
     ],
   },
   {
     id: "acompanamientos",
     label: "Acompañamientos",
-    icon: "🥗",
     title: "Acompañamientos",
     subtitle: "Todos a 3€",
     items: [

@@ -42,16 +42,20 @@ function Index() {
         />
         <div className="absolute inset-0 bg-veil" />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pt-24 pb-16 text-center sm:pt-32">
-          <span className="text-5xl">👩‍🍳</span>
-          <h1 className="mt-5 font-display text-5xl tracking-tight sm:text-7xl">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-background/30 backdrop-blur-sm">
+            <span className="font-display text-2xl italic text-gold">MF</span>
+          </div>
+          <h1 className="mt-6 font-display text-5xl tracking-tight sm:text-7xl">
             Madame Ferrat
           </h1>
-          <div className="mt-4 flex items-center gap-1 text-gold">
+          <div className="mt-4 flex items-center gap-3 text-gold/90">
+            <span className="h-px w-8 bg-gold/40" />
             {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} className="text-lg">
+              <span key={i} className="text-sm">
                 ★
               </span>
             ))}
+            <span className="h-px w-8 bg-gold/40" />
           </div>
           <p className="mt-5 text-sm tracking-[0.22em] text-muted-foreground uppercase sm:text-base">
             Sabores auténticos · Preparados con pasión · Horno de leña
@@ -66,13 +70,12 @@ function Index() {
               key={c.id}
               onClick={() => setActive(c.id)}
               className={cn(
-                "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors",
+                "shrink-0 rounded-full border px-5 py-2 text-sm tracking-wide transition-all",
                 active === c.id
-                  ? "border-transparent bg-ember text-ember-foreground"
+                  ? "border-transparent bg-ember font-medium text-ember-foreground shadow-warm"
                   : "border-border text-muted-foreground hover:border-ember/60 hover:text-foreground",
               )}
             >
-              <span aria-hidden>{c.icon}</span>
               {c.label}
             </button>
           ))}
@@ -80,10 +83,13 @@ function Index() {
       </nav>
 
       <section className="mx-auto max-w-5xl px-5 py-14">
-        <h2 className="text-center font-display text-3xl sm:text-4xl">
-          <span aria-hidden>{category.icon}</span>{" "}
-          <span className="text-gradient-ember">{category.title}</span>
-        </h2>
+        <div className="flex items-center justify-center gap-4">
+          <span className="h-px w-12 bg-ember/40" />
+          <h2 className="text-center font-display text-3xl sm:text-4xl">
+            <span className="text-gradient-ember">{category.title}</span>
+          </h2>
+          <span className="h-px w-12 bg-ember/40" />
+        </div>
         {category.subtitle && (
           <p className="mt-3 text-center text-sm tracking-[0.18em] text-muted-foreground uppercase">
             {category.subtitle}
@@ -141,9 +147,13 @@ function Index() {
 
         {category.id === "pizzas" && (
           <div className="mt-14 rounded-2xl border border-ember/40 bg-card/60 p-7">
-            <h3 className="text-center font-display text-2xl text-gold">
-              ★ Extras para pizza ★
-            </h3>
+            <div className="flex items-center justify-center gap-4">
+              <span className="h-px w-10 bg-gold/40" />
+              <h3 className="text-center font-display text-2xl text-gold">
+                Extras para pizza
+              </h3>
+              <span className="h-px w-10 bg-gold/40" />
+            </div>
             <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
               {extras.map((extra) => (
                 <li
