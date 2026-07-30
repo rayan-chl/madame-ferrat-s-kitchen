@@ -1,7 +1,8 @@
 export type MenuItem = {
   name: string;
   description: string;
-  price: string;
+  price?: string;
+  sizes?: { label: string; price: string }[];
   tag?: string;
 };
 
@@ -10,9 +11,11 @@ export type MenuCategory = {
   label: string;
   icon: string;
   title: string;
+  subtitle?: string;
   note?: string;
   items: MenuItem[];
 };
+
 
 export const categories: MenuCategory[] = [
   {
