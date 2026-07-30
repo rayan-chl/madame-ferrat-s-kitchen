@@ -9,7 +9,6 @@ export type MenuItem = {
 export type MenuCategory = {
   id: string;
   label: string;
-  icon: string;
   title: string;
   subtitle?: string;
   note?: string;
