@@ -70,13 +70,12 @@ function Index() {
               key={c.id}
               onClick={() => setActive(c.id)}
               className={cn(
-                "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors",
+                "shrink-0 rounded-full border px-5 py-2 text-sm tracking-wide transition-all",
                 active === c.id
-                  ? "border-transparent bg-ember text-ember-foreground"
+                  ? "border-transparent bg-ember font-medium text-ember-foreground shadow-warm"
                   : "border-border text-muted-foreground hover:border-ember/60 hover:text-foreground",
               )}
             >
-              <span aria-hidden>{c.icon}</span>
               {c.label}
             </button>
           ))}
