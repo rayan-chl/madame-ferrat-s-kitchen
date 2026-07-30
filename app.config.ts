@@ -4,6 +4,7 @@ export default defineConfig({
   server: {
     prerender: {
       enabled: true,
+      routes: ["/"],
     },
   },
 });
