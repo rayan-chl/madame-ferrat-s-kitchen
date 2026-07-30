@@ -1,24 +1,148 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import heroPizza from "@/assets/hero-pizza.jpg";
+import { categories, extras } from "@/data/menu";
+import { cn } from "@/lib/utils";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Madame Ferrat · Pizzas al horno de leña" },
+      {
+        name: "description",
+        content:
+          "Carta de Madame Ferrat: pizzas artesanas al horno de leña desde 8€, platos, tacos, hamburguesas y bocadillos. Sabores auténticos preparados con pasión.",
+      },
+      { property: "og:title", content: "Madame Ferrat · Pizzas al horno de leña" },
+      {
+        property: "og:description",
+        content:
+          "Pizzas artesanas al horno de leña, tacos, hamburguesas y más. Descubre nuestra carta.",
+      },
+      { property: "og:type", content: "restaurant.menu" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [active, setActive] = useState(categories[0].id);
+  const category = categories.find((c) => c.id === active) ?? categories[0];
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="min-h-screen">
+      <header className="relative isolate overflow-hidden">
+        <img
+          src={heroPizza}
+          alt="Pizza margarita recién sacada del horno de leña"
+          width={1600}
+          height={1008}
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-veil" />
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pt-24 pb-16 text-center sm:pt-32">
+          <span className="text-5xl">👩‍🍳</span>
+          <h1 className="mt-5 font-display text-5xl tracking-tight sm:text-7xl">
+            Madame Ferrat
+          </h1>
+          <div className="mt-4 flex items-center gap-1 text-gold">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <span key={i} className="text-lg">
+                ★
+              </span>
+            ))}
+          </div>
+          <p className="mt-5 text-sm tracking-[0.22em] text-muted-foreground uppercase sm:text-base">
+            Sabores auténticos · Preparados con pasión · Horno de leña
+          </p>
+        </div>
+      </header>
+
+      <nav className="sticky top-0 z-10 border-y border-border/70 bg-background/85 backdrop-blur">
+        <div className="mx-auto flex max-w-5xl gap-2 overflow-x-auto px-4 py-3">
+          {categories.map((c) => (
+            <button
+              key={c.id}
+              onClick={() => setActive(c.id)}
+              className={cn(
+                "flex shrink-0 items-center gap-2 rounded-full border px-4 py-2 text-sm transition-colors",
+                active === c.id
+                  ? "border-transparent bg-ember text-ember-foreground"
+                  : "border-border text-muted-foreground hover:border-ember/60 hover:text-foreground",
+              )}
+            >
+              <span aria-hidden>{c.icon}</span>
+              {c.label}
+            </button>
+          ))}
+        </div>
+      </nav>
+
+      <section className="mx-auto max-w-5xl px-5 py-14">
+        <h2 className="text-center font-display text-3xl sm:text-4xl">
+          <span aria-hidden>{category.icon}</span>{" "}
+          <span className="text-gradient-ember">{category.title}</span>
+        </h2>
+
+        {category.items.length === 0 ? (
+          <p className="mt-10 rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
+            Estamos afinando esta sección de la carta. Pregunta en sala por las
+            sugerencias del día.
+          </p>
+        ) : (
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {category.items.map((item) => (
+              <li
+                key={item.name}
+                className="group rounded-xl border border-border bg-card p-5 transition-all hover:-translate-y-0.5 hover:border-ember/60 hover:shadow-warm"
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="font-display text-xl">{item.name}</h3>
+                  <span className="font-display text-xl text-ember">{item.price}</span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {item.description}
+                </p>
+                {item.tag && (
+                  <span className="mt-3 inline-block rounded-full bg-secondary px-3 py-1 text-xs tracking-wide text-gold uppercase">
+                    {item.tag}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        {category.id === "pizzas" && (
+          <div className="mt-14 rounded-2xl border border-ember/40 bg-card/60 p-7">
+            <h3 className="text-center font-display text-2xl text-gold">
+              ★ Extras para pizza ★
+            </h3>
+            <ul className="mt-6 grid gap-x-8 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+              {extras.map((extra) => (
+                <li
+                  key={extra.name}
+                  className="flex items-baseline justify-between gap-3 border-b border-dashed border-border pb-2 text-sm"
+                >
+                  <span>{extra.name}</span>
+                  <span className="text-ember">{extra.price}</span>
+                </li>
+              ))}
+            </ul>
+            {category.note && (
+              <p className="mt-6 text-center text-xs tracking-wide text-muted-foreground">
+                * {category.note}
+              </p>
+            )}
+          </div>
+        )}
+      </section>
+
+      <footer className="border-t border-border py-10 text-center text-sm text-muted-foreground">
+        <p className="font-display text-lg text-foreground">Madame Ferrat</p>
+        <p className="mt-2">Horno de leña · Cocina artesana</p>
+      </footer>
+    </main>
   );
 }
