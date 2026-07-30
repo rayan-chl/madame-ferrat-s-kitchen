@@ -20,7 +20,6 @@ export const categories: MenuCategory[] = [
   {
     id: "pizzas",
     label: "Pizzas",
-    icon: "🍕",
     title: "Nuestras Pizzas",
     note: "Pídela con masa fina si lo prefieres.",
     items: [
