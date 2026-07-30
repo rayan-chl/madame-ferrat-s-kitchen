@@ -195,7 +195,7 @@ export const categories: MenuCategory[] = [
         description:
           "Escalope, carne picada, patatas fritas, lechuga, tomate, cebolla, salsa casera",
         price: "6,50€",
-        tag: "⭐ La casa",
+        tag: "La casa",
       },
     ],
   },
