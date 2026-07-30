@@ -7,8 +7,8 @@
 // @lovable.dev/vite-tanstack-config already includes the following:
 // TanStack Start, React, Tailwind, Nitro, paths, etc.
 
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/madame-ferrat-s-kitchen/",
+  base: "/",
 });
