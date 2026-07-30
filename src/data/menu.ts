@@ -68,7 +68,7 @@ export const categories: MenuCategory[] = [
         description:
           "Salsa de tomate, mozzarella, rúcula, carne picada, pimiento, cebolla, champiñones, aceitunas",
         price: "12€",
-        tag: "⭐ La casa",
+        tag: "La casa",
       },
     ],
   },
