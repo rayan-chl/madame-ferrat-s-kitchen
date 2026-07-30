@@ -83,10 +83,13 @@ function Index() {
       </nav>
 
       <section className="mx-auto max-w-5xl px-5 py-14">
-        <h2 className="text-center font-display text-3xl sm:text-4xl">
-          <span aria-hidden>{category.icon}</span>{" "}
-          <span className="text-gradient-ember">{category.title}</span>
-        </h2>
+        <div className="flex items-center justify-center gap-4">
+          <span className="h-px w-12 bg-ember/40" />
+          <h2 className="text-center font-display text-3xl sm:text-4xl">
+            <span className="text-gradient-ember">{category.title}</span>
+          </h2>
+          <span className="h-px w-12 bg-ember/40" />
+        </div>
         {category.subtitle && (
           <p className="mt-3 text-center text-sm tracking-[0.18em] text-muted-foreground uppercase">
             {category.subtitle}
