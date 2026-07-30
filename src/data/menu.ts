@@ -98,7 +98,6 @@ export const categories: MenuCategory[] = [
   {
     id: "tacos",
     label: "Tacos",
-    icon: "🌮",
     title: "Tacos",
     subtitle: "Disponibles en tamaño M y L",
     items: [
@@ -140,7 +139,6 @@ export const categories: MenuCategory[] = [
   {
     id: "hamburguesas",
     label: "Hamburguesas",
-    icon: "🍔",
     title: "Hamburguesas",
     items: [
       {
@@ -170,7 +168,6 @@ export const categories: MenuCategory[] = [
   {
     id: "bocadillos",
     label: "Bocadillos",
-    icon: "🥖",
     title: "Bocadillos",
     items: [
       {
@@ -205,7 +202,6 @@ export const categories: MenuCategory[] = [
   {
     id: "acompanamientos",
     label: "Acompañamientos",
-    icon: "🥗",
     title: "Acompañamientos",
     subtitle: "Todos a 3€",
     items: [
