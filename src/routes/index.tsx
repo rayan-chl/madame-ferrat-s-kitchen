@@ -42,16 +42,20 @@ function Index() {
         />
         <div className="absolute inset-0 bg-veil" />
         <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 pt-24 pb-16 text-center sm:pt-32">
-          <span className="text-5xl">👩‍🍳</span>
-          <h1 className="mt-5 font-display text-5xl tracking-tight sm:text-7xl">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full border border-gold/40 bg-background/30 backdrop-blur-sm">
+            <span className="font-display text-2xl italic text-gold">MF</span>
+          </div>
+          <h1 className="mt-6 font-display text-5xl tracking-tight sm:text-7xl">
             Madame Ferrat
           </h1>
-          <div className="mt-4 flex items-center gap-1 text-gold">
+          <div className="mt-4 flex items-center gap-3 text-gold/90">
+            <span className="h-px w-8 bg-gold/40" />
             {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i} className="text-lg">
+              <span key={i} className="text-sm">
                 ★
               </span>
             ))}
+            <span className="h-px w-8 bg-gold/40" />
           </div>
           <p className="mt-5 text-sm tracking-[0.22em] text-muted-foreground uppercase sm:text-base">
             Sabores auténticos · Preparados con pasión · Horno de leña
