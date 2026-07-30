@@ -84,6 +84,11 @@ function Index() {
           <span aria-hidden>{category.icon}</span>{" "}
           <span className="text-gradient-ember">{category.title}</span>
         </h2>
+        {category.subtitle && (
+          <p className="mt-3 text-center text-sm tracking-[0.18em] text-muted-foreground uppercase">
+            {category.subtitle}
+          </p>
+        )}
 
         {category.items.length === 0 ? (
           <p className="mt-10 rounded-xl border border-dashed border-border p-10 text-center text-muted-foreground">
@@ -99,11 +104,30 @@ function Index() {
               >
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="font-display text-xl">{item.name}</h3>
-                  <span className="font-display text-xl text-ember">{item.price}</span>
+                  {item.price && (
+                    <span className="font-display text-xl text-ember">{item.price}</span>
+                  )}
+                  {item.sizes && (
+                    <span className="flex shrink-0 gap-2">
+                      {item.sizes.map((s) => (
+                        <span
+                          key={s.label}
+                          className="flex items-baseline gap-1 rounded-full bg-secondary px-3 py-1"
+                        >
+                          <span className="text-xs text-muted-foreground">{s.label}</span>
+                          <span className="font-display text-base text-ember">
+                            {s.price}
+                          </span>
+                        </span>
+                      ))}
+                    </span>
+                  )}
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
+                {item.description && (
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {item.description}
+                  </p>
+                )}
                 {item.tag && (
                   <span className="mt-3 inline-block rounded-full bg-secondary px-3 py-1 text-xs tracking-wide text-gold uppercase">
                     {item.tag}
@@ -113,6 +137,7 @@ function Index() {
             ))}
           </ul>
         )}
+
 
         {category.id === "pizzas" && (
           <div className="mt-14 rounded-2xl border border-ember/40 bg-card/60 p-7">
