@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroPizza from "@/assets/hero-pizza.jpg";
 import { categories, extras, type Lang } from "@/data/menu";
-import { LANG_STORAGE_KEY, langOptions, ui } from "@/i18n/ui";
+import { langOptions, ui } from "@/i18n/ui";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
