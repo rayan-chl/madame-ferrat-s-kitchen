@@ -32,20 +32,16 @@ function Index() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [active, setActive] = useState(categories[0].id);
 
+  // El selector de idioma se muestra en cada visita.
   useEffect(() => {
-    const stored = window.localStorage.getItem(LANG_STORAGE_KEY) as Lang | null;
-    if (stored && langOptions.some((o) => o.code === stored)) {
-      setLang(stored);
-    } else {
-      setPickerOpen(true);
-    }
+    setPickerOpen(true);
   }, []);
 
   const choose = (code: Lang) => {
-    window.localStorage.setItem(LANG_STORAGE_KEY, code);
     setLang(code);
     setPickerOpen(false);
   };
+
 
   const l: Lang = lang ?? "es";
   const t = ui[l];
